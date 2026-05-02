@@ -21,6 +21,16 @@
       "sourceProject": "carbohydrate-fueling-for-ultrarunners"
     },
     {
+      "id": "suc-broadcast-training-tips",
+      "title": "SUC Broadcast Training Tips",
+      "mode": "webapp.training-guide",
+      "type": "portrait_guide",
+      "status": "local",
+      "appPath": "apps/suc-broadcast-training-tips/index.html",
+      "createdAt": "2026-05-02T23:30:14.943Z",
+      "sourceProject": "suc-broadcast-training-tips"
+    },
+    {
       "id": "western-states",
       "title": "Western States",
       "mode": "webapp.training-guide",
@@ -32,5 +42,5 @@
     }
   ],
   "schemaVersion": 1,
-  "updatedAt": "2026-05-02T07:57:04.217Z"
+  "updatedAt": "2026-05-02T23:43:16.448Z"
 }
