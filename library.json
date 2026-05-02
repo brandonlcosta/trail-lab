@@ -1,0 +1,36 @@
+{
+  "apps": [
+    {
+      "id": "100-mile-ultras-static-app",
+      "title": "100 Mile Ultras — Static App",
+      "mode": "webapp.training-guide",
+      "type": "portrait_guide",
+      "status": "local",
+      "appPath": "apps/100-mile-ultras-static-app/index.html",
+      "createdAt": "2026-05-02T07:47:04.239Z",
+      "sourceProject": "100-mile-ultras-static-app"
+    },
+    {
+      "id": "carbohydrate-fueling-for-ultrarunners",
+      "title": "Carbohydrate Fueling For Ultrarunners",
+      "mode": "webapp.training-guide",
+      "type": "portrait_guide",
+      "status": "local",
+      "appPath": "apps/carbohydrate-fueling-for-ultrarunners/index.html",
+      "createdAt": "2026-05-02T06:45:53.176Z",
+      "sourceProject": "carbohydrate-fueling-for-ultrarunners"
+    },
+    {
+      "id": "western-states",
+      "title": "Western States",
+      "mode": "webapp.training-guide",
+      "type": "portrait_guide",
+      "status": "local",
+      "appPath": "apps/western-states/index.html",
+      "createdAt": "2026-05-02T07:16:56.473Z",
+      "sourceProject": "western-states"
+    }
+  ],
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-02T07:57:04.217Z"
+}
