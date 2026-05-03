@@ -31,6 +31,16 @@
       "sourceProject": "suc-broadcast-training-tips"
     },
     {
+      "id": "suc-broadcast-training-tips-2",
+      "title": "SUC Broadcast Training Tips 2",
+      "mode": "webapp.training-guide",
+      "type": "portrait_guide",
+      "status": "local",
+      "appPath": "apps/suc-broadcast-training-tips-2/index.html",
+      "createdAt": "2026-05-03T03:06:50.304Z",
+      "sourceProject": "suc-broadcast-training-tips-2"
+    },
+    {
       "id": "western-states",
       "title": "Western States",
       "mode": "webapp.training-guide",
@@ -42,5 +52,5 @@
     }
   ],
   "schemaVersion": 1,
-  "updatedAt": "2026-05-02T23:43:16.448Z"
+  "updatedAt": "2026-05-03T03:16:06.605Z"
 }
