@@ -41,6 +41,16 @@
       "sourceProject": "suc-broadcast-training-tips-2"
     },
     {
+      "id": "team-suc-guide-v6",
+      "title": "Team SUC Guide V6",
+      "mode": "webapp.training-guide",
+      "type": "portrait_guide",
+      "status": "local",
+      "appPath": "apps/team-suc-guide-v6/index.html",
+      "createdAt": "2026-05-03T08:01:23.052Z",
+      "sourceProject": "team-suc-guide-v6"
+    },
+    {
       "id": "team-suc-training-guide",
       "title": "Team SUC Training Guide",
       "mode": "webapp.training-guide",
@@ -62,5 +72,5 @@
     }
   ],
   "schemaVersion": 1,
-  "updatedAt": "2026-05-03T04:09:53.256Z"
+  "updatedAt": "2026-05-03T08:01:23.059Z"
 }
