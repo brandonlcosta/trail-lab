@@ -25,19 +25,6 @@ function updatePageState() {
   });
 }
 
-function titleFromSlug(slug) {
-  return slug
-    .split(/[-_]+/)
-    .filter(Boolean)
-    .map((part) => {
-      const lower = part.toLowerCase();
-      if (lower === "suc") return "SUC";
-      if (lower === "v6") return "V6";
-      return `${lower.charAt(0).toUpperCase()}${lower.slice(1)}`;
-    })
-    .join(" ");
-}
-
 async function fetchText(path) {
   const response = await fetch(path, { cache: "no-store" });
   if (!response.ok) {
@@ -46,69 +33,11 @@ async function fetchText(path) {
   return response.text();
 }
 
-async function appFromIndex(slug, path) {
-  const html = await fetchText(path);
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  const title = doc.querySelector("title")?.textContent?.trim() || titleFromSlug(slug);
-  const description =
-    doc.querySelector('meta[name="description"]')?.getAttribute("content")?.trim() ||
-    "Static field-guide webapp stored in the apps folder.";
-
-  return {
-    description,
-    path,
-    slug,
-    title
-  };
-}
-
-async function appsFromDirectoryListing() {
-  const appsUrl = new URL("apps/", window.location.href);
-  const html = await fetchText(appsUrl.href);
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  const slugs = [...doc.querySelectorAll("a[href]")]
-    .map((link) => {
-      const url = new URL(link.getAttribute("href"), appsUrl);
-      if (!url.href.startsWith(appsUrl.href) || url.href === appsUrl.href) return null;
-      return decodeURIComponent(url.href.slice(appsUrl.href.length)).split("/")[0];
-    })
-    .filter((slug) => slug && !slug.startsWith("."));
-
-  return [...new Set(slugs)].map((slug) => ({
-    path: `apps/${slug}/index.html`,
-    slug
-  }));
-}
-
-async function appsFromRegistry() {
-  const registry = JSON.parse(await fetchText("library.json"));
-  return (registry.apps || [])
-    .filter((app) => app.appPath?.startsWith("apps/"))
-    .map((app) => ({
-      path: app.appPath,
-      slug: app.id || app.sourceProject || app.appPath.split("/")[1]
-    }));
-}
-
 async function loadApps() {
-  let candidates = [];
-
-  try {
-    candidates = await appsFromDirectoryListing();
-  } catch {
-    candidates = await appsFromRegistry();
-  }
-
-  const apps = [];
-  for (const candidate of candidates) {
-    try {
-      apps.push(await appFromIndex(candidate.slug, candidate.path));
-    } catch {
-      // Missing folders or stale registry entries are intentionally ignored.
-    }
-  }
-
-  return apps.sort((a, b) => a.title.localeCompare(b.title));
+  const manifest = JSON.parse(await fetchText("apps-manifest.json"));
+  return (manifest.apps || [])
+    .filter((app) => app.path?.startsWith("apps/") && app.title)
+    .sort((a, b) => a.title.localeCompare(b.title));
 }
 
 function renderApps(apps) {
@@ -169,7 +98,7 @@ topButton.addEventListener("click", () => {
 loadApps()
   .then(renderApps)
   .catch(() => {
-    appCount.textContent = "Unable to read apps";
+    appCount.textContent = "Unable to read manifest";
     appGrid.innerHTML =
-      '<p class="empty-message">Open this site through a static server so the landing page can read the apps folder.</p>';
+      '<p class="empty-message">Run the app manifest generator, then refresh this page.</p>';
   });

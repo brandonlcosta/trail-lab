@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "scripts": {
+    "manifest": "node scripts/generate-app-manifest.mjs",
+    "serve": "node scripts/serve.mjs"
+  }
+}

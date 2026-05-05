@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "apps": [
+    {
+      "id": "team-suc-guide-v6",
+      "title": "Team SUC Beginner Guide",
+      "description": "A portrait-first Team SUC beginner field guide for new trail runners learning the rhythm, broadcasts, crew habits, pacing, and first-week basics.",
+      "path": "apps/team-suc-guide-v6/index.html"
+    }
+  ]
+}
